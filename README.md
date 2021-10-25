@@ -1,19 +1,5 @@
-# After selecting a directory
-
 ```
-npm init vite@latest
-```
-
-# Type in project name: "blog-posts", & ENTER
-
-# A list will appear, navigate with the arrow keys
-
-# SELECT Vue, ENTER
-
-# SELECT Vue again, ENTER
-
-```
-cd blog-posts
+cd team-blog-posts
 npm install
 ```
 
