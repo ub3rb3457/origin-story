@@ -1,7 +1,46 @@
-# Vue 3 + Vite
+# After selecting a directory
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+```
+npm init vite@latest
+```
 
-## Recommended IDE Setup
+# Type in project name: "blog-posts", & ENTER
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+# A list will appear, navigate with the arrow keys
+
+# SELECT Vue, ENTER
+
+# SELECT Vue again, ENTER
+
+```
+cd blog-posts
+npm install
+```
+
+## After that process, we will now add Quasar Vue
+
+```
+vue add quasar
+```
+
+# Allow Quasar to replace...
+
+# ("y" = yes & "n" = no)
+
+# Type "y", ENTER
+
+# SELECT None, ENTER
+
+# Material Icons (Recommended), ENTER
+
+# Press ENTER for the next step
+
+# Type "n", ENTER
+
+# Highlight Material Icons (Recommended) with the spacebar, and ENTER
+
+```
+npm run dev
+```
+
+# Open live server
