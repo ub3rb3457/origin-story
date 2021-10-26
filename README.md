@@ -1,7 +1,7 @@
 # After cloning the repo
 
 ```
-cd blog-posts
+cd team-blog-posts
 npm install
 npm run dev
 ```
