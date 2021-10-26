@@ -8,29 +8,44 @@ CREATE TABLE users (
     password character varing(50),
 );
 
-CREATE TABLE blog (
+CREATE TABLE blogs (
     id serial,
     title character varing(50),
     content character varing(50),
 );
 
-CREATE TABLE monsters (
+CREATE TABLE comments (
     id serial,
-    name character varying(50),
-    personality character varying(50)
+    content character varing(50),
 );
 
-CREATE TABLE habitats (
-    id serial,
-    name character varying(50),
-    climate character varying(50),
-    temperature int
+CREATE TABLE savedblogs (
+    user_id int,
+    blog_id int,
 );
 
-CREATE TABLE lives (
-    monster character varying(50),
-    habitat character varying(50)
+CREATE TABLE userblog (
+    user_id int,
+    blog_id int,
 );
+
+-- CREATE TABLE monsters (
+--     id serial,
+--     name character varying(50),
+--     personality character varying(50)
+-- );
+
+-- CREATE TABLE habitats (
+--     id serial,
+--     name character varying(50),
+--     climate character varying(50),
+--     temperature int
+-- );
+
+-- CREATE TABLE lives (
+--     monster character varying(50),
+--     habitat character varying(50)
+-- );
 
 -- -- -- -- -- -- INSERT INTO TABLES -- -- -- -- -- --
 
