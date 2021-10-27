@@ -18,19 +18,11 @@ const pool = new Pool({
   port,
 });
 
-const pool = new Pool({
-  user: "node_user",
-  host: "localhost",
-  database: "blogdb",
-  password: "node_password",
-  port: 5432,
-});
-
-// // // // // // EXPORTS // // // // // //
+// // // // // // REQUESTS // // // // // //
 
 pool.query("SELECT * FROM users", (err, res) => {
   if (err) return console.log(err);
-  console.log(res.rows);
+  console.log(res);
 });
 
 module.exports = pool;
