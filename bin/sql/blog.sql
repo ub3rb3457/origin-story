@@ -6,6 +6,7 @@ CREATE TABLE users (
     surname character varing(50),
     username character varing(50),
     email character varing(50),
+    type character varing(50),
     password character varing(50),
 );
 
@@ -17,12 +18,20 @@ CREATE TABLE blogs (
 
 CREATE TABLE comments (
     id serial,
+    user_id int,
+    blog_id int,
     content character varing(50),
 );
 
 CREATE TABLE savedblogs (
     user_id int,
     blog_id int,
+);
+
+CREATE TABLE likedislike (
+    user_id int,
+    blog_id int,
+    type character varing(50),
 );
 
 CREATE TABLE userblogs (
