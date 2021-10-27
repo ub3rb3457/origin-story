@@ -4,13 +4,13 @@ CREATE TABLE users (
     id serial,
     username character varying(50),
     email character varying(50),
-    type character varying(50),
-    password character varying(50)
+    type character varying(15),
+    password character varying(15)
 );
 
 CREATE TABLE blogs (
     id serial,
-    title character varying(50),
+    title character varying(100),
     content character varying(1000)
 );
 
@@ -58,31 +58,31 @@ VALUES
 
 INSERT INTO comments(user_id, blog_id, content)
 VALUES
-('1', '1', 'Can i join?'),
-('2', '2', 'That is so nice!!!!'),
-('3', '3', '!XD!XD!XD!XD!XD!');
+(1, 1, 'Can i join?'),
+(2, 2, 'That is so nice!!!!'),
+(3, 3, '!XD!XD!XD!XD!XD!');
 
 INSERT INTO savedblogs(user_id, blog_id)
 VALUES
-('1', '2'),
-('1', '3'),
-('2', '1'),
-('3', '1');
+(1, 2),
+(1, 3),
+(2, 1),
+(3, 1);
 
 INSERT INTO likedblogs(user_id, blog_id)
 VALUES
-('1', '2'),
-('2', '1'),
-('3', '1');
+(1, 2),
+(2, 1),
+(3, 1);
 
 INSERT INTO dislikedblogs(user_id, blog_id)
 VALUES
-('1', '3'),
-('2', '3'),
-('3', '2');
+(1, 3),
+(2, 3),
+(3, 2);
 
 INSERT INTO authorblogs(user_id, blog_id)
 VALUES
-('1', '1'),
-('2', '2'),
-('2', '3');
+(1, 1),
+(2, 2),
+(2, 3);
