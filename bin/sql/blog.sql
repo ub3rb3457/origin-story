@@ -7,40 +7,40 @@ CREATE TABLE users (
     username character varying(50),
     email character varying(50),
     type character varying(50),
-    password character varying(50),
+    password character varying(50)
 );
 
 CREATE TABLE blogs (
     id serial,
     title character varying(50),
-    content character varying(50),
+    content character varying(50)
 );
 
 CREATE TABLE comments (
     id serial,
     user_id int,
     blog_id int,
-    content character varying(50),
+    content character varying(50)
 );
 
 CREATE TABLE savedblogs (
     user_id int,
-    blog_id int,
+    blog_id int
 );
 
 CREATE TABLE likedblog (
     user_id int,
-    blog_id int,
+    blog_id int
 );
 
 CREATE TABLE dislikedblog (
     user_id int,
-    blog_id int,
+    blog_id int
 );
 
 CREATE TABLE userblogs (
     user_id int,
-    blog_id int,
+    blog_id int
 );
 
 -- -- -- -- -- -- INSERT INTO TABLES -- -- -- -- -- --
