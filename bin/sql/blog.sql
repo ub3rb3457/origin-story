@@ -45,15 +45,12 @@ CREATE TABLE userblogs (
 
 -- -- -- -- -- -- INSERT INTO TABLES -- -- -- -- -- --
 
-CREATE TABLE users (
-    id serial,
-    name character varying(50),
-    surname character varying(50),
-    username character varying(50),
-    email character varying(50),
-    type character varying(50),
-    password character varying(50)
-);
+
+-- INSERT INTO users(name, surname, username, email, type, password)
+-- VALUES
+-- ('John', 'Peter', 'JPJPJP', 'JPeter@gmail.com', 'Author', '123456789'),
+-- ('Spider', 'Parker', 'SPSPSP', 'SParker@gmail.com', 'Author', 'qwerty'),
+-- ('Peter', 'Man', 'PMPMPM', 'PMan@gmail.com', 'Reader', 'ytrewq');
 
 -- INSERT INTO users(name, surname, username, email, type, password)
 -- VALUES
