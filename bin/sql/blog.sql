@@ -26,17 +26,17 @@ CREATE TABLE savedblogs (
     blog_id int
 );
 
-CREATE TABLE likedblog (
+CREATE TABLE likedblogs (
     user_id int,
     blog_id int
 );
 
-CREATE TABLE dislikedblog (
+CREATE TABLE dislikedblogs (
     user_id int,
     blog_id int
 );
 
-CREATE TABLE userblogs (
+CREATE TABLE authorblogs (
     user_id int,
     blog_id int
 );
@@ -50,57 +50,66 @@ CREATE TABLE userblogs (
 -- ('SPSPSP', 'SParker@gmail.com', 'Author', 'qwerty'),
 -- ('PMPMPM', 'PMan@gmail.com', 'Reader', 'ytrewq');
 
--- -- -- -- -- -- --CREATE TABLE blogs (
+-- INSERT INTO blogs(title, content)
+-- VALUES
+-- ('The beach', 'Finally at the beach ready to pppaaaarrrrttttyyyy!!'),
+-- ('Local loto game update', 'There has been a winner for the 10 thousand Rand airtime, and his name is Thabo!'),
+-- ('Thabo update', 'The local loto winner Thabo has been disapointed in his win.');
+
+-- -- -- -- -- -- --CREATE TABLE comments (
 -- -- -- -- -- -- --    id serial,
--- -- -- -- -- -- --    title character varying(50),
+-- -- -- -- -- -- --    user_id int,
+-- -- -- -- -- -- --    blog_id int,
 -- -- -- -- -- -- --    content character varying(50)
 -- -- -- -- -- -- --);
 
--- INSERT INTO blogs(name, surname, username, email, type, password)
+-- INSERT INTO comments(user_id, blog_id, content)
 -- VALUES
--- ('John', 'Peter', 'JPJPJP', 'JPeter@gmail.com', 'Author', '123456789'),
--- ('Spider', 'Parker', 'SPSPSP', 'SParker@gmail.com', 'Author', 'qwerty'),
--- ('Peter', 'Man', 'PMPMPM', 'PMan@gmail.com', 'Reader', 'ytrewq');
-
--- CREATE TABLE comments (
---     id serial,
---     user_id int,
---     blog_id int,
---     content character varying(50)
--- );
+-- ('1', '1', 'Can i join?'),
+-- ('2', '2', 'That is so nice!!!!'),
+-- ('3', '3', '!XD!XD!XD!XD!XD!');
 
 -- -- -- -- -- -- -- CREATE TABLE savedblogs (
 -- -- -- -- -- -- --     user_id int,
 -- -- -- -- -- -- --     blog_id int
 -- -- -- -- -- -- -- );
 
--- -- -- -- -- -- -- CREATE TABLE likedblog (
+-- INSERT INTO savedblogs(user_id, blog_id)
+-- VALUES
+-- ('1', '2'),
+-- ('1', '3'),
+-- ('2', '1'),
+-- ('3', '1');
+
+-- -- -- -- -- -- -- CREATE TABLE likedblogs (
 -- -- -- -- -- -- --     user_id int,
 -- -- -- -- -- -- --     blog_id int
 -- -- -- -- -- -- -- );
+
+-- INSERT INTO likedblogs(user_id, blog_id)
+-- VALUES
+-- ('1', '2'),
+-- ('2', '1'),
+-- ('3', '1');
 
 -- -- -- -- -- -- -- CREATE TABLE dislikedblog (
 -- -- -- -- -- -- --     user_id int,
 -- -- -- -- -- -- --     blog_id int
 -- -- -- -- -- -- -- );
 
---  -- -- -- -- -- -- CREATE TABLE userblogs (
+-- INSERT INTO dislikedblogs(user_id, blog_id)
+-- VALUES
+-- ('1', '3'),
+-- ('2', '3'),
+-- ('3', '2');
+
+--  -- -- -- -- -- -- CREATE TABLE authorblogs (
 --  -- -- -- -- -- --     user_id int,
 --  -- -- -- -- -- --     blog_id int
 --  -- -- -- -- -- -- );
 
--- INSERT INTO habitats(name, climate, temperature)
+-- INSERT INTO authorblogs(user_id, blog_id)
 -- VALUES
--- ('desert', 'dry', 100),
--- ('forrest', 'haunted', 70),
--- ('mountain', 'icy', 30);
-
--- INSERT INTO lives(monster, habitat)
--- VALUES
--- ('The World', 'desert'),
--- ('Star Platinum', 'desert'),
--- ('Silver Chariot', 'desert'),
--- ('Stone Free', 'mountain'),
--- ('Limp Bizkit', 'mountain'),
--- ('Killer queen', 'forrest'),
--- ('Deadly queen', 'forrest');
+-- ('1', '1'),
+-- ('2', '2'),
+-- ('2', '3');
