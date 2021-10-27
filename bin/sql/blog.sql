@@ -4,7 +4,6 @@ CREATE TABLE users (
     id serial,
     username character varying(50),
     email character varying(50),
-    type character varying(15),
     password character varying(15)
 );
 
@@ -44,11 +43,11 @@ CREATE TABLE authorblogs (
 -- -- -- -- -- -- INSERT INTO TABLES -- -- -- -- -- --
 
 
-INSERT INTO users(username, email, type, password)
+INSERT INTO users(username, email, password)
 VALUES
-('JPJPJP', 'JPeter@gmail.com', 'Author', '123456789'),
-('SPSPSP', 'SParker@gmail.com', 'Author', 'qwerty'),
-('PMPMPM', 'PMan@gmail.com', 'Reader', 'ytrewq');
+('JPJPJP', 'JPeter@gmail.com', '123456789'),
+('SPSPSP', 'SParker@gmail.com', 'qwerty'),
+('PMPMPM', 'PMan@gmail.com', 'ytrewq');
 
 INSERT INTO blogs(title, content)
 VALUES
