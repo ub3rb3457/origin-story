@@ -28,34 +28,20 @@ CREATE TABLE savedblogs (
     blog_id int,
 );
 
-CREATE TABLE likedislike (
+CREATE TABLE likedblog (
     user_id int,
     blog_id int,
-    type character varing(50),
+);
+
+CREATE TABLE dislikedblog (
+    user_id int,
+    blog_id int,
 );
 
 CREATE TABLE userblogs (
     user_id int,
     blog_id int,
 );
-
--- CREATE TABLE monsters (
---     id serial,
---     name character varying(50),
---     personality character varying(50)
--- );
-
--- CREATE TABLE habitats (
---     id serial,
---     name character varying(50),
---     climate character varying(50),
---     temperature int
--- );
-
--- CREATE TABLE lives (
---     monster character varying(50),
---     habitat character varying(50)
--- );
 
 -- -- -- -- -- -- INSERT INTO TABLES -- -- -- -- -- --
 
