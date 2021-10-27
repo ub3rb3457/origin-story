@@ -11,7 +11,7 @@ CREATE TABLE users (
 CREATE TABLE blogs (
     id serial,
     title character varying(50),
-    content character varying(50)
+    content character varying(200)
 );
 
 CREATE TABLE comments (
