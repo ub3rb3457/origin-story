@@ -18,7 +18,7 @@ CREATE TABLE comments (
     id serial,
     user_id int,
     blog_id int,
-    content character varying(50)
+    content character varying(200)
 );
 
 CREATE TABLE savedblogs (
