@@ -2,25 +2,25 @@
 
 CREATE TABLE users (
     id serial,
-    name character varing(50),
-    surname character varing(50),
-    username character varing(50),
-    email character varing(50),
-    type character varing(50),
-    password character varing(50),
+    name character varying(50),
+    surname character varying(50),
+    username character varying(50),
+    email character varying(50),
+    type character varying(50),
+    password character varying(50),
 );
 
 CREATE TABLE blogs (
     id serial,
-    title character varing(50),
-    content character varing(50),
+    title character varying(50),
+    content character varying(50),
 );
 
 CREATE TABLE comments (
     id serial,
     user_id int,
     blog_id int,
-    content character varing(50),
+    content character varying(50),
 );
 
 CREATE TABLE savedblogs (
