@@ -4,7 +4,8 @@
   "scripts": {
     "serve": "vite preview",
     "build": "vite build",
-    "dev": "vite"
+    "dev": "vite",
+    "node": "nodemon ./bin/www"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
