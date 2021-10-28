@@ -21,6 +21,34 @@ router.get("/:id", (request, response, next) => {
   });
 });
 
+// // // get by user_id
+
+router.get("/:user_id", (request, response, next) => {
+  const { user_id } = request.params;
+  pool.query(
+    "SELECT * FROM comments WHERE user_id = $1",
+    [user_id],
+    (err, res) => {
+      if (err) return next(err);
+      response.json(res.rows);
+    }
+  );
+});
+
+// // // get by blog_id
+
+router.get("/:blog_id", (request, response, next) => {
+  const { blog_id } = request.params;
+  pool.query(
+    "SELECT * FROM comments WHERE blog_id = $1",
+    [blog_id],
+    (err, res) => {
+      if (err) return next(err);
+      response.json(res.rows);
+    }
+  );
+});
+
 // // // // // // POST METHOLDS // // // // // //
 
 router.post("/", (request, response, next) => {
