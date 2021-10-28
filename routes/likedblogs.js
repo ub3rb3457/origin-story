@@ -18,7 +18,7 @@ router.get("/", (request, response, next) => {
 router.get("/:blog_id", (request, response, next) => {
   const { blog_id } = request.params;
   pool.query(
-    "SELECT * FROM authorblogs WHERE blog_id = $1",
+    "SELECT * FROM likedblogs WHERE blog_id = $1",
     [blog_id],
     (err, res) => {
       if (err) return next(err);

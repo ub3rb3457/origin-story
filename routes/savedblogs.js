@@ -15,10 +15,10 @@ router.get("/", (request, response, next) => {
 
 // // // get by blog_id
 
-router.get("/:blog_id", (request, response, next) => {
+router.get("/blogs/:blog_id", (request, response, next) => {
   const { blog_id } = request.params;
   pool.query(
-    "SELECT * FROM authorblogs WHERE blog_id = $1",
+    "SELECT * FROM savedblogs WHERE blog_id = $1",
     [blog_id],
     (err, res) => {
       if (err) return next(err);
@@ -29,7 +29,7 @@ router.get("/:blog_id", (request, response, next) => {
 
 // // // get by user_id
 
-router.get("/:user_id", (request, response, next) => {
+router.get("/users/:user_id", (request, response, next) => {
   const { user_id } = request.params;
   pool.query(
     "SELECT * FROM savedblogs WHERE user_id = $1",

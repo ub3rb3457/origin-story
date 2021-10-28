@@ -13,14 +13,18 @@ router.get("/", (request, response, next) => {
   });
 });
 
-// // // get by comment id
+// // // get by blog_id
 
-router.get("/:id", (request, response, next) => {
-  const { id } = request.params;
-  pool.query("SELECT * FROM dislikedblogs WHERE id = $1", [id], (err, res) => {
-    if (err) return next(err);
-    response.json(res.rows);
-  });
+router.get("/:blog_id", (request, response, next) => {
+  const { blog_id } = request.params;
+  pool.query(
+    "SELECT * FROM dislikedblogs WHERE blog_id = $1",
+    [blog_id],
+    (err, res) => {
+      if (err) return next(err);
+      response.json(res.rows);
+    }
+  );
 });
 
 // // // get by user_id
