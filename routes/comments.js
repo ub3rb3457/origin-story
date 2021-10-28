@@ -13,6 +13,8 @@ router.get("/", (request, response, next) => {
   });
 });
 
+// // // get by comment id
+
 router.get("/:id", (request, response, next) => {
   const { id } = request.params;
   pool.query("SELECT * FROM comments WHERE id = $1", [id], (err, res) => {
