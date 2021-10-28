@@ -20,9 +20,4 @@ const pool = new Pool({
 
 // // // // // // REQUESTS // // // // // //
 
-pool.query("SELECT * FROM users", (err, res) => {
-  if (err) return console.log(err);
-  console.log(res);
-});
-
 module.exports = pool;
