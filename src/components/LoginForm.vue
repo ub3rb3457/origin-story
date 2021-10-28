@@ -90,5 +90,15 @@ export default {
 
 .signup a {
   text-decoration: none;
+  transition: 0.2s ease-in;
+}
+
+.signup a:visited {
+  color: grey;
+}
+
+.signup a:hover {
+  color: black;
+  transform: scale(1.1);
 }
 </style>
