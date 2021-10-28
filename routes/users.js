@@ -24,10 +24,10 @@ router.get("/:id", (request, response, next) => {
 // // // // // // POST METHOLDS // // // // // //
 
 router.post("/", (request, response, next) => {
-  const { name, email, password } = request.body;
+  const { username, email, password } = request.body;
   pool.query(
     "INSERT INTO users(username, email, password) VALUES ($1, $2, $3)",
-    [name, email, password],
+    [username, email, password],
     (err, res) => {
       if (err) return next(err);
       //To redirect the user to users
@@ -40,7 +40,7 @@ router.post("/", (request, response, next) => {
 
 router.put("/:id", (request, response, next) => {
   const { id } = request.params;
-  const keys = ["name", "email", "password"];
+  const keys = ["username", "email", "password"];
   const fields = [];
   keys.forEach((key) => {
     if (request.body[key]) fields.push(key);
