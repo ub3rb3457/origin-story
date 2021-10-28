@@ -13,11 +13,27 @@ router.get("/", (request, response, next) => {
   });
 });
 
-router.get("/:id", (request, response, next) => {
-  const { id } = request.params;
+// // // get by blog_id
+
+router.get("/:blog_id", (request, response, next) => {
+  const { blog_id } = request.params;
+  pool.query(
+    "SELECT * FROM authorblogs WHERE blog_id = $1",
+    [blog_id],
+    (err, res) => {
+      if (err) return next(err);
+      response.json(res.rows);
+    }
+  );
+});
+
+// // // get by user_id
+
+router.get("/:user_id", (request, response, next) => {
+  const { user_id } = request.params;
   pool.query(
     "SELECT * FROM likedblogs WHERE user_id = $1",
-    [id],
+    [user_id],
     (err, res) => {
       if (err) return next(err);
       response.json(res.rows);
