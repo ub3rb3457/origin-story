@@ -21,7 +21,8 @@
         ]"
       />
 
-      <q-side-link tag="a" to="/SignUpForm.vue">Go to Route</q-side-link>
+      <!-- <q-side-link tag="a" to="/SignUpForm.vue">Go to Route</q-side-link> -->
+      <p class="signup">Already have an account? <a href="#">Sign Up</a></p>
 
       <div>
         <q-btn label="Submit" type="submit" color="primary" />
@@ -82,4 +83,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.signup {
+  color: grey;
+}
+
+.signup a {
+  text-decoration: none;
+}
+</style>
