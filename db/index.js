@@ -18,6 +18,6 @@ const pool = new Pool({
   port,
 });
 
-// // // // // // REQUESTS // // // // // //
+// // // // // // EXPORTS // // // // // //
 
 module.exports = pool;
