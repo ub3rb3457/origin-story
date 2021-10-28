@@ -24,10 +24,10 @@ router.get("/:id", (request, response, next) => {
 // // // // // // POST METHOLDS // // // // // //
 
 router.post("/", (request, response, next) => {
-  const { title, content } = request.body;
+  const { user_id, blog_id, content } = request.body;
   pool.query(
-    "INSERT INTO comments(title, content) VALUES ($1, $2)",
-    [title, content],
+    "INSERT INTO comments(user_id, blog_id, content) VALUES ($1, $2, $3)",
+    [user_id, blog_id, content],
     (err, res) => {
       if (err) return next(err);
       response.redirect("/comments");
@@ -39,7 +39,7 @@ router.post("/", (request, response, next) => {
 
 router.put("/:id", (request, response, next) => {
   const { id } = request.params;
-  const keys = ["title", "content"];
+  const keys = ["user_id", "blog_id", "content"];
   const fields = [];
   keys.forEach((key) => {
     if (request.body[key]) fields.push(key);
