@@ -7,7 +7,7 @@ const router = Router();
 // // // // // // GET METHOLDS // // // // // //
 
 router.get("/", (request, response, next) => {
-  pool.query("SELECT * FROM dislikedblogs", (err, res) => {
+  pool.query("SELECT * FROM ldblogs", (err, res) => {
     if (err) return next(err);
     response.json(res.rows);
   });
@@ -18,7 +18,7 @@ router.get("/", (request, response, next) => {
 router.get("/:blog_id", (request, response, next) => {
   const { blog_id } = request.params;
   pool.query(
-    "SELECT * FROM dislikedblogs WHERE blog_id = $1",
+    "SELECT * FROM ldblogs WHERE blog_id = $1",
     [blog_id],
     (err, res) => {
       if (err) return next(err);
@@ -32,7 +32,7 @@ router.get("/:blog_id", (request, response, next) => {
 router.get("/:user_id", (request, response, next) => {
   const { user_id } = request.params;
   pool.query(
-    "SELECT * FROM dislikedblogs WHERE user_id = $1",
+    "SELECT * FROM ldblogs WHERE user_id = $1",
     [user_id],
     (err, res) => {
       if (err) return next(err);
@@ -44,50 +44,50 @@ router.get("/:user_id", (request, response, next) => {
 // // // // // // POST METHOLDS // // // // // //
 
 router.post("/", (request, response, next) => {
-  const { user_id, blog_id } = request.body;
+  const { user_id, blog_id, type } = request.body;
   pool.query(
-    "INSERT INTO dislikedblogs(user_id, blog_id) VALUES ($1, $2)",
-    [user_id, blog_id],
+    "INSERT INTO ldblogs(user_id, blog_id, type) VALUES ($1, $2, $3)",
+    [user_id, blog_id, type],
     (err, res) => {
       if (err) return next(err);
-      response.redirect("/dislikedblogs");
+      response.redirect("/ldblogs");
     }
   );
 });
 
 // // // // // // PUT METHOLDS // // // // // //
 
-// router.put("/:id", (request, response, next) => {
-//   const { id } = request.params;
-//   const keys = ["user_id", "blog_id"];
-//   const fields = [];
-//   keys.forEach((key) => {
-//     if (request.body[key]) fields.push(key);
-//   });
+router.put("/:user_id/:blog_id", (request, response, next) => {
+  const { user_id, blog_id } = request.params;
+  const keys = ["type"];
+  const fields = [];
+  keys.forEach((key) => {
+    if (request.body[key]) fields.push(key);
+  });
 
-//   fields.forEach((field, index) => {
-//     pool.query(
-//       `UPDATE dislikedblogs SET ${field}=($1) WHERE id=($2)`,
-//       [request.body[field], id],
-//       (err, res) => {
-//         if (err) return next(err);
-//         if (index === fields.length - 1) response.redirect("/dislikedblogs");
-//       }
-//     );
-//   });
-// });
+  fields.forEach((field, index) => {
+    pool.query(
+      `UPDATE ldblogs SET ${field}=($1) WHERE user_id=($2) AND blog_id=($3)`,
+      [request.body[field], user_id, blog_id],
+      (err, res) => {
+        if (err) return next(err);
+        if (index === fields.length - 1) response.redirect("/ldblogs");
+      }
+    );
+  });
+});
 
 // // // // // // DELETE METHOLDS // // // // // //
 
 router.delete("/:user_id/:blog_id", (request, response, next) => {
   const { user_id, blog_id } = request.params;
   pool.query(
-    "DELETE FROM dislikedblogs WHERE user_id=($1) AND blog_id=($2)",
+    "DELETE FROM ldblogs WHERE user_id=($1) AND blog_id=($2)",
     [user_id, blog_id],
     (err, res) => {
       if (err) return next(err);
 
-      response.redirect("/dislikedblogs");
+      response.redirect("/ldblogs");
     }
   );
 });

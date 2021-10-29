@@ -1,5 +1,7 @@
 -- -- -- -- -- -- CREATING TABLES -- -- -- -- -- --
 
+-- for a user
+
 CREATE TABLE users (
     id serial,
     username character varying(50),
@@ -7,11 +9,15 @@ CREATE TABLE users (
     password character varying(15)
 );
 
+-- for a blog
+
 CREATE TABLE blogs (
     id serial,
     title character varying(100),
     content character varying(1000)
 );
+
+-- for the comments of a blog
 
 CREATE TABLE comments (
     id serial,
@@ -20,25 +26,27 @@ CREATE TABLE comments (
     content character varying(200)
 );
 
+-- for link between the user and the blog they saved
+
 CREATE TABLE savedblogs (
     user_id int,
     blog_id int
 );
 
-CREATE TABLE likedblogs (
-    user_id int,
-    blog_id int
-);
-
-CREATE TABLE dislikedblogs (
-    user_id int,
-    blog_id int
-);
+-- for link between the author and their blog
 
 CREATE TABLE authorblogs (
     user_id int,
     blog_id int
 );
+
+-- for like and dislike
+
+CREATE TABLE ldblogs (
+    user_id int,
+    blog_id int,
+    type character varying(10)
+)
 
 -- -- -- -- -- -- INSERT INTO TABLES -- -- -- -- -- --
 
@@ -68,17 +76,14 @@ VALUES
 (2, 1),
 (3, 1);
 
-INSERT INTO likedblogs(user_id, blog_id)
+INSERT INTO ldblogs(user_id, blog_id)
 VALUES
-(1, 2),
-(2, 1),
-(3, 1);
-
-INSERT INTO dislikedblogs(user_id, blog_id)
-VALUES
-(1, 3),
-(2, 3),
-(3, 2);
+(1, 2, "like"),
+(1, 3, "dislike"),
+(2, 1, "like"),
+(2, 3, "dislike"),
+(3, 1, "like"),
+(3, 2, "dislike");
 
 INSERT INTO authorblogs(user_id, blog_id)
 VALUES

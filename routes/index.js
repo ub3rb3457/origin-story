@@ -8,8 +8,7 @@ const routes = [
   "blogs",
   "comments",
   "savedblogs",
-  "likedblogs",
-  "dislikedblogs",
+  "ldblogs",
   "authorblogs",
 ];
 
