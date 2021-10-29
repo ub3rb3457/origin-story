@@ -44,10 +44,10 @@ router.get("/hashtag/:hashtag", (request, response, next) => {
 // // // // // // POST METHOLDS // // // // // //
 
 router.post("/", (request, response, next) => {
-  const { user_id, blog_id, hashtag } = request.body;
+  const { blog_id, hashtag } = request.body;
   pool.query(
-    "INSERT INTO hashtags(user_id, blog_id, hashtag) VALUES ($1, $2, $3)",
-    [user_id, blog_id, hashtag],
+    "INSERT INTO hashtags(blog_id, hashtag) VALUES ($1, $2)",
+    [blog_id, hashtag],
     (err, res) => {
       if (err) return next(err);
       response.redirect("/hashtags");
