@@ -10,6 +10,7 @@ const routes = [
   "savedblogs",
   "ldblogs",
   "authorblogs",
+  "hashtags",
 ];
 
 // // // // // // ROUTER USES // // // // // //

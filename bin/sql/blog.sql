@@ -48,6 +48,11 @@ CREATE TABLE ldblogs (
     type character varying(10)
 );
 
+CREATE TABLE hashtags (
+    blog_id int,
+    hashtag character varying(20)
+);
+
 -- -- -- -- -- -- INSERT INTO TABLES -- -- -- -- -- --
 
 
@@ -90,3 +95,14 @@ VALUES
 (1, 1),
 (2, 2),
 (2, 3);
+
+INSERT INTO hashtags(blog_id, hashtag)
+VALUES
+(1, 'Beach'),
+(1, 'Party'),
+(2, 'Winner'),
+(2, 'Great'),
+(2, 'Best'),
+(3, 'LOL'),
+(3, 'Fail'),
+(3, 'Shame');
