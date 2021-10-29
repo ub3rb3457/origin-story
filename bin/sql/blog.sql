@@ -46,7 +46,7 @@ CREATE TABLE ldblogs (
     user_id int,
     blog_id int,
     type character varying(10)
-)
+);
 
 -- -- -- -- -- -- INSERT INTO TABLES -- -- -- -- -- --
 
@@ -76,14 +76,14 @@ VALUES
 (2, 1),
 (3, 1);
 
-INSERT INTO ldblogs(user_id, blog_id)
+INSERT INTO ldblogs(user_id, blog_id, type)
 VALUES
-(1, 2, "like"),
-(1, 3, "dislike"),
-(2, 1, "like"),
-(2, 3, "dislike"),
-(3, 1, "like"),
-(3, 2, "dislike");
+(1, 2, 'like'),
+(1, 3, 'dislike'),
+(2, 1, 'like'),
+(2, 3, 'dislike'),
+(3, 1, 'like'),
+(3, 2, 'dislike');
 
 INSERT INTO authorblogs(user_id, blog_id)
 VALUES

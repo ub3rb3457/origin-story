@@ -5,6 +5,7 @@
     "serve": "vite preview",
     "build": "vite build",
     "dev": "vite",
+    "configure_node": "./bin/configuredb.sh",
     "node": "node ./bin/www"
   },
   "dependencies": {
