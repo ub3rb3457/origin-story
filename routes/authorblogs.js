@@ -15,7 +15,7 @@ router.get("/", (request, response, next) => {
 
 // // // get by user_id
 
-router.get("/:user_id", (request, response, next) => {
+router.get("/user/:user_id", (request, response, next) => {
   const { user_id } = request.params;
   pool.query(
     "SELECT * FROM authorblogs WHERE user_id = $1",
@@ -29,7 +29,7 @@ router.get("/:user_id", (request, response, next) => {
 
 // // // get by blog_id
 
-router.get("/:blog_id", (request, response, next) => {
+router.get("/blog/:blog_id", (request, response, next) => {
   const { blog_id } = request.params;
   pool.query(
     "SELECT * FROM authorblogs WHERE blog_id = $1",
