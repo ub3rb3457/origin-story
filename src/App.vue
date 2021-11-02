@@ -89,6 +89,7 @@
     </q-drawer>
 
     <q-page-container>
+      <CreateBlog/>
       <SignUp />
       <login-form />
     </q-page-container>
@@ -99,11 +100,12 @@
 import { ref } from "vue";
 import SignUp from './components/SignUp.vue'
 import LoginForm from "./components/LoginForm.vue";
+import CreateBlog from './components/CreateBlog.vue'
 
 export default {
   name: "LayoutDefault",
 
-  components: { LoginForm, SignUp },
+  components: { LoginForm, SignUp, CreateBlog },
 
   setup() {
     return {
