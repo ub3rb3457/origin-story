@@ -1,5 +1,6 @@
 node_modules
 secrets/
+nasarjs/
 .DS_Store
 dist
 dist-ssr
