@@ -77,6 +77,8 @@
 
     <q-page-container>
       <CreateBlog/>
+      <br>
+      <ForgetPassword />
     </q-page-container>
   </q-layout>
 </template>
@@ -84,10 +86,11 @@
 <script>
 import { ref } from 'vue'
 import CreateBlog from './components/CreateBlog.vue'
+import ForgetPassword from './components/forgetPassword.vue'
 
 
 export default {
-  components: { CreateBlog },
+  components: { CreateBlog, ForgetPassword },
   name: 'LayoutDefault',
 
   setup () {
