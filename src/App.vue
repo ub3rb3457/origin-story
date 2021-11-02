@@ -76,21 +76,19 @@
     </q-drawer>
 
     <q-page-container>
-      <HelloWorld />
+      <CreateBlog/>
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
 import { ref } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import CreateBlog from './components/CreateBlog.vue'
+
 
 export default {
+  components: { CreateBlog },
   name: 'LayoutDefault',
-
-  components: {
-    HelloWorld
-  },
 
   setup () {
     return {
