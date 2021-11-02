@@ -76,21 +76,19 @@
     </q-drawer>
 
     <q-page-container>
-      <HelloWorld />
+      <SignUp />
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
 import { ref } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import SignUp from './components/SignUp.vue'
 
 export default {
   name: 'LayoutDefault',
 
-  components: {
-    HelloWorld
-  },
+  components: {SignUp},
 
   setup () {
     return {
