@@ -76,8 +76,8 @@
     </q-drawer>
 
     <q-page-container>
-      <CreateBlog/>
-      <br>
+      <!-- <CreateBlog/>
+      <br> -->
       <ForgetPassword />
     </q-page-container>
   </q-layout>
