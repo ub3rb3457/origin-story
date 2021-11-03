@@ -29,7 +29,6 @@ import { ref } from "vue";
 
 
 export default {
-  name: "CreateBlog",
   setup() {
     const title = ref("");
     const body = ref("");

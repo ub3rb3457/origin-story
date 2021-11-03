@@ -40,7 +40,6 @@
 import { ref } from "vue";
 
 export default {
-  name: "forgetPassword",
   setup() {
     return {
       email: ref(""),
