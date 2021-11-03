@@ -89,15 +89,16 @@
     </q-drawer>
 
     <q-page-container>
-      <SignUp />
-      <login-form />
+      <router-view />
+      <!-- <SignUp />
+      <login-form /> -->
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
 import { ref } from "vue";
-import SignUp from './components/SignUp.vue'
+import SignUp from "./components/SignUp.vue";
 import LoginForm from "./components/LoginForm.vue";
 
 export default {
