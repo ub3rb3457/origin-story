@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md" style="max-width: 400px">
+  <div class="q-pa-md" style="max-width: 400px; margin:auto;">
     <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
       <q-input
         filled
