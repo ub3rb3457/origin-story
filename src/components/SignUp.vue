@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md" style="max-width: 400px">
+  <div class="q-pa-md" style="max-width: 400px; margin:auto:">
 
     <q-form
       @submit="onSubmit"
@@ -50,7 +50,7 @@
             />
             </template>
         </q-input>
-
+        <p class="signup">Already have an account? <a href="#">Log In</a></p>
 
       
 
