@@ -3,7 +3,7 @@
 
     <q-form
       @submit="onSubmit"
-      @reset="onReset"
+     
       class="q-gutter-md"
     >
       <q-input
@@ -51,11 +51,8 @@
             </template>
         </q-input>
 
-
-      
-
       <!-- <q-toggle v-model="accept" label="I accept the license and terms" /> -->
-
+      <p class="signup">Already have an account? <a href="#">Sign Up</a></p>
       <div>
         <q-btn label="Submit" type="submit" color="primary"/>
         <!-- <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" /> -->
@@ -74,13 +71,10 @@ export default {
     const $q = useQuasar()
 
     const name = ref(null)
-    const age = ref(null)
-    const accept = ref(false)
+    
 
     return {
       name,
-      age,
-      accept,
       password: ref(''),
       isPwd: ref(true),
       email: ref(''),
