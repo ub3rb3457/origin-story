@@ -89,6 +89,7 @@
     </q-drawer>
 
     <q-page-container>
+      <router-view />
       <CreateBlog/>
 
       <ForgetPassword />
@@ -100,7 +101,7 @@
 
 <script>
 import { ref } from "vue";
-import SignUp from './components/SignUp.vue'
+import SignUp from "./components/SignUp.vue";
 import LoginForm from "./components/LoginForm.vue";
 import CreateBlog from './components/CreateBlog.vue'
 import ForgetPassword from './components/forgetPassword.vue'
