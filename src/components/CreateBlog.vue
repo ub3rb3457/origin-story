@@ -11,7 +11,7 @@
       <q-input v-model="tag" outlined @keydown.enter.prevent="handleKeydown"/>
       <div v-for="tag in tags" :key="tag" class="pill">#{{ tag }}</div>
       <br/>
-      <q-btn 
+      <q-btn :ripple="{ color: 'white' }"
       style=
       'background:linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(0, 0, 0, 0) 100%), #6CE34E; 
       width:200px;
@@ -29,7 +29,6 @@ import { ref } from "vue";
 
 
 export default {
-  name: "CreateBlog",
   setup() {
     const title = ref("");
     const body = ref("");

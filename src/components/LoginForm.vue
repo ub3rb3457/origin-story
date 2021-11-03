@@ -43,6 +43,7 @@ import { useQuasar } from "quasar";
 import { ref } from "vue";
 
 export default {
+  name: 'LoginForm',
   setup() {
     const $q = useQuasar();
 
