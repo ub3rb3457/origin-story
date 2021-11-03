@@ -22,7 +22,7 @@
       />
 
       <!-- <q-side-link tag="a" to="/SignUpForm.vue">Go to Route</q-side-link> -->
-      <p class="signup">Already have an account? <a href="#">Sign Up</a></p>
+      <p class="signup">Don`t have an account? <a href="#">Sign Up</a></p>
 
       <div>
         <q-btn label="Submit" type="submit" color="primary" />

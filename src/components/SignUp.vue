@@ -50,7 +50,7 @@
             />
             </template>
         </q-input>
-
+        <p class="signup">Already have an account? <a href="#">Log In</a></p>
 
       
 

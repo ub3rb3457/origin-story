@@ -14,7 +14,8 @@
     "express": "^4.17.1",
     "pg": "^8.7.1",
     "quasar": "^2.0.0",
-    "vue": "^3.2.16"
+    "vue": "^3.2.16",
+    "vue-router": "^3.5.3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.3",
