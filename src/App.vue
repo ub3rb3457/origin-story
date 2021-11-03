@@ -89,7 +89,7 @@
     </q-drawer>
 
     <q-page-container>
-      <login-form />
+      <LoginForm />
       <SignUp />
       <ForgetPassword />
       <CreateBlog/>
