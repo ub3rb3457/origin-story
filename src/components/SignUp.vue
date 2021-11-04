@@ -54,7 +54,6 @@
           />
         </template>
       </q-input>
-
       <q-btn
         label="Sign Up"
         type="submit"
@@ -67,7 +66,7 @@
       />
       <br />
       <!-- <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" /> -->
-      <p class="signup">Already have an account? <a href="#">Log In</a></p>
+      <p class="signup">Already have an account? <a href="/">Log In</a></p>
       <!-- <q-toggle v-model="accept" label="I accept the license and terms" /> -->
     </q-form>
   </div>
