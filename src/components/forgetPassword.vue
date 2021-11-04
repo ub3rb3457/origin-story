@@ -41,12 +41,12 @@ import { ref } from "vue";
 
 export default {
   setup() {
-    return {
-      email: ref(""),
-      New: ref(""),
-      confirm: ref(""),
-      isPwd: ref(true),
-    };
+    const email = ref("")
+    const New = ref('')
+    const confirm = ref('')
+    const isPwd = ref(true)
+
+    return { email, New, confirm, isPwd };
   },
 };
 </script>
