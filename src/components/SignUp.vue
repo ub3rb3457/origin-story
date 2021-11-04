@@ -8,7 +8,7 @@
     >
       <q-input
         filled
-        v-model="name"
+        v-model="username"
         label="Username"
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Enter a Username']"
@@ -21,20 +21,7 @@
         lazy-rules
         :rules="[ val => val && val.length > 0 || 'Enter a Email Address']"
         />
-      <!-- <q-input
-        filled
-        type="password"
-        v-model="age"
-        label="Password"
-        lazy-rules
-        :rules="[
-          val => val !== null && val !== '' || 'Please type your age',
-          val => val > 0 && val < 100 || 'Please type a real age'
-        ]"
-      />
-
-
-        <q-input v-model="password" filled type="password" hint="Password" /> -->
+     
 
         <q-input v-model="password"
             filled :type="isPwd ? 'password' : 'text'"
@@ -52,9 +39,9 @@
         </q-input>
 
       <!-- <q-toggle v-model="accept" label="I accept the license and terms" /> -->
-      <p class="signup">Already have an account? <a href="#">Sign Up</a></p>
+      <p class="signup">Already have an account? <router-link to="/"><span class="link">Login</span></router-link></p>
       <div>
-        <q-btn label="Submit" type="submit" color="primary"/>
+        <q-btn  label="Submit" type="submit" color="primary"/>
         <!-- <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" /> -->
       </div>
     </q-form>
@@ -70,17 +57,18 @@ export default {
   setup () {
     const $q = useQuasar()
 
-    const name = ref(null)
-    
+    const username = ref(null)
+    const password = ref(null)
+    const email = ref(null)
 
     return {
-      name,
-      password: ref(''),
+      username,
+      password,
       isPwd: ref(true),
-      email: ref(''),
+      email,
 
       onSubmit () {
-        if (accept.value !== true) {
+        if (email.value !== true) {
           $q.notify({
             color: 'red-5',
             textColor: 'white',
@@ -98,16 +86,19 @@ export default {
         }
       },
 
-      onReset () {
-        name.value = null
-        age.value = null
-        accept.value = false
-      }
+      
     }
+  },
+  methods:{
+   onSubmit(){
+   this.$router.push('/'); 
+      }
   }
 }
 </script>
 
 <style>
-
+.link{
+  color: black;
+}
 </style>

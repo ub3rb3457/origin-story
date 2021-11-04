@@ -90,10 +90,10 @@
 
     <q-page-container>
       <router-view />
-      <CreateBlog/>
+      <!-- <CreateBlog/>
       <ForgetPassword />
       <SignUp />
-      <LoginForm />
+      <LoginForm /> -->
     </q-page-container>
   </q-layout>
 </template>
