@@ -89,19 +89,29 @@
     </q-drawer>
 
     <q-page-container>
-      <login-form />
+      <router-view />
+      <!-- <CreateBlog/>
+      <ForgetPassword />
+      <SignUp />
+
+      <LoginForm /> -->
+
+      <login-form /> -->
+
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
 import { ref } from "vue";
+import SignUp from "./components/SignUp.vue";
 import LoginForm from "./components/LoginForm.vue";
+import CreateBlog from './components/CreateBlog.vue'
+import ForgetPassword from './components/forgetPassword.vue'
 
 export default {
-  name: "LayoutDefault",
-
-  components: { LoginForm },
+  components: { LoginForm, SignUp, CreateBlog, ForgetPassword },
+  name: 'LayoutDefault',
 
   setup() {
     return {
