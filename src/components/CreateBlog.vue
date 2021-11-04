@@ -51,6 +51,13 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
 
+
+.q-form{
+  padding: 0;
+  width: fit-content;
+  background: none;
+  margin: 0;
+}
 .create {
   display: flex;
   justify-content: center;
