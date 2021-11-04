@@ -1,40 +1,51 @@
 <template>
-  <div class="q-pa-md" style="max-width: 400px; margin:auto;">
-    <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
+  <div class="q-pa-md" style="max-width: 400px; margin: auto">
+    <q-form @submit="onSubmit" class="q-gutter-md" style="margin-top: 0">
+      <h4>Login</h4>
       <q-input
-        filled
+        rounded
+        outlined
         v-model="email"
         label="Your email *"
-        hint="Email address"
         lazy-rules
         :rules="[(val) => (val && val.length > 0) || 'Please type your email']"
       />
 
       <q-input
-        filled
+        rounded
+        outlined
+        :type="isPwd ? 'password' : 'text'"
         v-model="password"
         label="Your password *"
-        hint="Password"
         lazy-rules
         :rules="[
           (val) => (val && val.length > 0) || 'Please type your password',
         ]"
-      />
+      >
+        <template v-slot:append>
+          <q-icon
+            :name="isPwd ? 'visibility_off' : 'visibility'"
+            class="cursor-pointer"
+            @click="isPwd = !isPwd"
+          />
+        </template>
+      </q-input>
 
+      <div>
+        <q-btn
+          label="Login"
+          type="submit"
+          style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%,  rgba(0, 0, 0, 0) 100%), #6ce34e;
+            width: 320px;
+            font-family: Racing Sans One, cursive;
+            text-transform: capitalize;
+            font-size: 15px;
+          "
+        />
+      </div>
       <!-- <q-side-link tag="a" to="/SignUpForm.vue">Go to Route</q-side-link> -->
 
       <p class="signup">Don't have an account? <a href="#">Sign Up</a></p>
-
-      <div>
-        <q-btn label="Submit" type="submit" color="primary" />
-        <q-btn
-          label="Reset"
-          type="reset"
-          color="primary"
-          flat
-          class="q-ml-sm"
-        />
-      </div>
     </q-form>
   </div>
 </template>
@@ -44,7 +55,7 @@ import { useQuasar } from "quasar";
 import { ref } from "vue";
 
 export default {
-  name: 'LoginForm',
+  name: "LoginForm",
   setup() {
     const $q = useQuasar();
 
@@ -56,6 +67,7 @@ export default {
       email,
       password,
       accept,
+      isPwd: ref(true),
 
       onSubmit() {
         if (accept.value !== true) {
@@ -74,33 +86,52 @@ export default {
           });
         }
       },
-
-      onReset() {
-        email.value = null;
-        password.value = null;
-        accept.value = false;
-      },
     };
   },
 };
 </script>
 
 <style>
+.q-form {
+  padding: 30px;
+  width: 400px;
+  background: #176cea;
+  border-radius: 20px;
+}
+.q-field--outlined.q-field--rounded .q-field__control {
+  border-radius: 28px;
+  background: #ffffff;
+}
+h4 {
+  margin: 0 0 20px 0;
+  font-family: Racing Sans One, cursive;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
 .signup {
-  color: grey;
+  color: white;
 }
 
 .signup a {
-  text-decoration: none;
   transition: 0.2s ease-in;
+  color: greenyellow;
+
 }
 
 .signup a:visited {
-  color: grey;
+  color: greenyellow;
 }
 
 .signup a:hover {
   color: black;
   transform: scale(1.1);
+}
+p{
+  display: flex;
+  justify-content: center;
+}
+.block{
+  font-size: x-large
 }
 </style>
