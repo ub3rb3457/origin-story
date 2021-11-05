@@ -1,42 +1,42 @@
 <template>
-  <div class="q-pa-md" style="max-width: 400px">
-
+  <div class="q-pa-md" style="max-width: 400px; margin: auto">
     <q-form
       @submit="onSubmit"
-     
       class="q-gutter-md"
+      style="margin-top: 0; margin-left: 0"
     >
+      <h4>SignUp</h4>
       <q-input
-        filled
+        rounded outlined
         v-model="username"
         label="Username"
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Enter a Username']"
+        :rules="[(val) => (val && val.length > 0) || 'Enter a Username']"
       />
 
-        
-      <q-input v-model="email" 
-        filled type="email" 
+      <q-input
+        v-model="email"
+        rounded outlined
+        type="email"
         label="Email"
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Enter a Email Address']"
-        />
-     
+        :rules="[(val) => (val && val.length > 0) || 'Enter a Email Address']"
+      />
+      <!-- <q-input
+        filled
+        type="password"
+        v-model="age"
+        label="Password"
+        lazy-rules
+        :rules="[
+          val => val !== null && val !== '' || 'Please type your age',
+          val => val > 0 && val < 100 || 'Please type a real age'
+        ]"
+      />
 
-        <q-input v-model="password"
-            filled :type="isPwd ? 'password' : 'text'"
-            label="Password"
-            lazy-rules
-            :rules="[ val => val.length > 0 || 'Enter a Password' ]"
-            >
-            <template v-slot:append>
-            <q-icon
-                :name="isPwd ? 'visibility_off' : 'visibility'"
-                class="cursor-pointer"
-                @click="isPwd = !isPwd"
-            />
-            </template>
-        </q-input>
+
+        <q-input v-model="password" filled type="password" hint="Password" /> -->
+
       <q-input
         v-model="password"
         rounded outlined
@@ -65,15 +65,9 @@
       />
       <br />
       <!-- <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" /> -->
-      <p class="signup">Already have an account? <a href="/">Log In</a></p>
+      <p class="signup">Already have an account? <a href="#">Log In</a></p>
       <!-- <q-toggle v-model="accept" label="I accept the license and terms" /> -->
-      <p class="signup">Already have an account? <router-link to="/"><span class="link">Login</span></router-link></p>
-      <div>
-        <q-btn  label="Submit" type="submit" color="primary"/>
-        <!-- <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" /> -->
-      </div>
     </q-form>
-
   </div>
 </template>
 
@@ -126,6 +120,10 @@ export default {
 </script>
 
 <style>
+.q-toolbar__title {
+  font-family: Racing Sans One, cursive;
+  font-size: 30px;
+}
 .link{
   color: black;
 }
