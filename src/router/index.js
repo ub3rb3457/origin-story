@@ -3,12 +3,18 @@ import Login from "../components/LoginForm.vue";
 import Signup from "../components/SignUp.vue";
 import forgetPassword from "../components/forgetPassword.vue";
 import CreateBlog from "../components/CreateBlog.vue";
+import Landing from "../components/landing.vue"
 
 const routes = [
   {
     path: "/login",
     name: "Home",
-    component: Login,
+    component: Landing,
+  },
+  {
+    path: '/login',
+    name: "Login",
+    component: Login
   },
   {
     path: "/register",
