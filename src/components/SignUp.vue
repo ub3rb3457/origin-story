@@ -37,7 +37,35 @@
             />
             </template>
         </q-input>
-
+      <q-input
+        v-model="password"
+        rounded outlined
+        :type="isPwd ? 'password' : 'text'"
+        label="Password"
+        lazy-rules
+        :rules="[(val) => val.length > 0 || 'Enter a Password']"
+      >
+        <template v-slot:append>
+          <q-icon
+            :name="isPwd ? 'visibility_off' : 'visibility'"
+            class="cursor-pointer"
+            @click="isPwd = !isPwd"
+          />
+        </template>
+      </q-input>
+      <q-btn
+        label="Sign Up"
+        type="submit"
+        style="background: linear-gradient(180deg,rgba(255, 255, 255, 0.4) 0%,rgba(0, 0, 0, 0) 100%),#6ce34e;
+          width: 325px;
+          font-family: Racing Sans One, cursive;
+          text-transform: capitalize;
+          font-size: 15px;
+        "
+      />
+      <br />
+      <!-- <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" /> -->
+      <p class="signup">Already have an account? <a href="/">Log In</a></p>
       <!-- <q-toggle v-model="accept" label="I accept the license and terms" /> -->
       <p class="signup">Already have an account? <router-link to="/"><span class="link">Login</span></router-link></p>
       <div>
