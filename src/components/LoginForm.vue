@@ -9,7 +9,7 @@
   <div class="q-pa-md" style="max-width: 400px; margin: auto">
 
     <q-form @submit="loginUser" class="q-gutter-md" style="margin-top: 0">
-      <h4>Login</h4>
+      <h4 class="form-name">Login</h4>
       <q-input
         rounded
         outlined

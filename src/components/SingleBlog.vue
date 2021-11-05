@@ -4,6 +4,7 @@
       <div class="q-pa-md"></div>
       <q-btn flat icon="keyboard_backspace" @click="$router.go(-1)"></q-btn>
       <q-toolbar-title class="name"> MyBlog & Me </q-toolbar-title>
+      <q-btn style="background: #6CE34E;">Comment</q-btn>
     </q-toolbar>
   </q-header>
   <div class="work">
@@ -45,11 +46,62 @@
       <q-btn flat icon="thumb_up_off_alt"></q-btn>
       <q-btn flat icon="thumb_down_off_alt"></q-btn>
     </div>
+    <div class="comments">
+      <form class="insert">
+        <textarea cols="20" rows="10" placeholder="leave a comment"></textarea>
+        <q-btn>Comment</q-btn>
+      </form>
+      <div class="comment">
+        <p class="commenty">Kevin</p>
+        <p class="words">I like this</p>
+      </div>
+      <div class="comment">
+        <p class="commenty">Kevin</p>
+        <p class="words">I like this</p>
+      </div>
+      <div class="comment">
+        <p class="commenty">Kevin</p>
+        <p class="words">I like this</p>
+      </div>
+      <div class="comment">
+        <p class="commenty">Kevin</p>
+        <p class="words">I like this</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+
+};
 </script>
 
-<style></style>
+<style scoped>
+.work{
+  padding-right: 0;
+}
+.work{
+  display: flex;
+}
+.comments{
+border: black 1px solid;
+width: fit-content;
+}
+.comment{
+  border: 1px black solid;
+}
+.insert{
+  padding: 20px;
+}
+.commenty{
+  color: grey;
+  text-decoration: underline;
+  display: flex;
+  justify-content: flex-start;
+}
+.words{
+  display: flex;
+  justify-content: flex-start;
+}
+</style>
