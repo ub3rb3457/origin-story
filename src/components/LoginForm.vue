@@ -91,6 +91,7 @@ export default {
           else {
             alert("You have successfully logged in.");
             // Goes to the blog section
+            this.$router.push("/");
           }
         });
       });
