@@ -6,10 +6,9 @@ import CreateBlog from "../components/CreateBlog.vue";
 import Landing from "../components/landing.vue"
 import SingleBlog from "../components/SingleBlog.vue"
 
-
 const routes = [
   {
-    path: "/",
+    path: "/login",
     name: "Home",
     component: Landing,
   },
@@ -38,7 +37,6 @@ const routes = [
     name: "SingleBlog",
     component: SingleBlog,
   },
-
 ];
 
 const router = createRouter({

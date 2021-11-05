@@ -61,7 +61,6 @@
       <p class="signup">
         Don't have an account? <a href="/register">Sign Up</a>
       </p>
-
     </q-form>
   </div>
 </template>
