@@ -8,14 +8,14 @@ import SingleBlog from "../components/SingleBlog.vue"
 
 const routes = [
   {
-    path: "/login",
+    path: "/",
     name: "Home",
     component: Landing,
   },
   {
-    path: '/login',
+    path: "/login",
     name: "Login",
-    component: Login
+    component: Login,
   },
   {
     path: "/register",
