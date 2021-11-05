@@ -1,8 +1,13 @@
 <template>
-  <div class="q-pa-md" style="max-width: 400px">
-    <q-form @submit="onSubmit" class="q-gutter-md">
+  <div class="q-pa-md" style="max-width: 400px; margin: auto">
+    <q-form
+      @submit="onSubmit"
+      class="q-gutter-md"
+      style="margin-top: 0; margin-left: 0"
+    >
+      <h4>SignUp</h4>
       <q-input
-        filled
+        rounded outlined
         v-model="username"
         label="Username"
         lazy-rules
@@ -11,12 +16,27 @@
 
       <q-input
         v-model="email"
+        rounded outlined
         filled
         type="email"
         label="Email"
         lazy-rules
         :rules="[(val) => (val && val.length > 0) || 'Enter a Email Address']"
       />
+      <!-- <q-input
+        filled
+        type="password"
+        v-model="age"
+        label="Password"
+        lazy-rules
+        :rules="[
+          val => val !== null && val !== '' || 'Please type your age',
+          val => val > 0 && val < 100 || 'Please type a real age'
+        ]"
+      />
+
+
+        <q-input v-model="password" filled type="password" hint="Password" /> -->
 
       <q-input
         v-model="password"
@@ -34,6 +54,20 @@
           />
         </template>
       </q-input>
+      <q-btn
+        label="Sign Up"
+        type="submit"
+        style="background: linear-gradient(180deg,rgba(255, 255, 255, 0.4) 0%,rgba(0, 0, 0, 0) 100%),#6ce34e;
+          width: 325px;
+          font-family: Racing Sans One, cursive;
+          text-transform: capitalize;
+          font-size: 15px;
+        "
+      />
+      <br />
+      <!-- <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" /> -->
+      <p class="signup">Already have an account? <a href="#">Log In</a></p>
+      <!-- <q-toggle v-model="accept" label="I accept the license and terms" /> -->
 
       <!-- <q-toggle v-model="accept" label="I accept the license and terms" /> -->
       <p class="signup">
@@ -94,7 +128,11 @@ export default {
 </script>
 
 <style>
-.link {
+.q-toolbar__title {
+  font-family: Racing Sans One, cursive;
+  font-size: 30px;
+}
+.link{
   color: black;
 }
 </style>

@@ -132,6 +132,10 @@ export default {
 </script>
 
 <style>
+.q-toolbar__title {
+  font-family: Racing Sans One, cursive;
+  font-size: 30px;
+}
 .q-form {
   padding: 30px;
   width: 400px;
