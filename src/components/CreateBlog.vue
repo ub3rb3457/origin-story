@@ -9,7 +9,7 @@
       <br>
       <label class="sub">Tags</label>
       <q-input v-model="tag" outlined @keydown.enter.prevent="handleKeydown"/>
-      <div v-for="tag in tags" :key="tag" class="pill">#{{ tag }}</div>
+      <div><q-chip v-for="tag in tags" :key="tag" class="pill">#{{ tag }}</q-chip></div>
       <br/>
       <q-btn :ripple="{ color: 'white' }"
       style=
@@ -18,7 +18,7 @@
       font-family: Racing Sans One, cursive;
       text-transform: capitalize;
       font-size:15px;
-      flex-wrap:wrap;' 
+      flex-wrap:wrap;'
       icon="cloud_upload" label='Upload'/>
     </q-form>
   </div>
@@ -51,7 +51,6 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
 
-
 .q-form{
   padding: 0;
   width: fit-content;
@@ -70,8 +69,8 @@ font-size: 20px;
 text-decoration-line: underline;
 }
 .pill {
-  display: flex;
-  margin: 10px 10px 0 0;
+  display: inline-block;
+  margin: 10px 10px 10px 0;
   color: #444;
   background: #ddd;
   padding: 8px;

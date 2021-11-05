@@ -25,7 +25,8 @@
           />
         </template>
       </q-input>
-      <br />
+      <p class="warning"></p>
+      <br/>
       <q-btn :ripple="{ color: 'white' }" label="Reset Password" 
       style=" background: linear-gradient(180deg,rgba(255, 255, 255, 0.4) 0%,rgba(0, 0, 0, 0) 100%),#6ce34e;
   width: 300px;
@@ -44,6 +45,7 @@ export default {
     const email = ref("")
     const New = ref('')
     const confirm = ref('')
+    const warning = ref('')
     const isPwd = ref(true)
 
     return { email, New, confirm, isPwd };
