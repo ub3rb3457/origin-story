@@ -24,6 +24,7 @@
       <q-input
         v-model="email"
         rounded outlined
+        filled
         type="email"
         label="Email"
         lazy-rules
@@ -46,7 +47,7 @@
 
       <q-input
         v-model="password"
-        rounded outlined
+        filled
         :type="isPwd ? 'password' : 'text'"
         label="Password"
         lazy-rules
@@ -74,21 +75,31 @@
       <!-- <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" /> -->
       <p class="signup">Already have an account? <a href="/login">Log In</a></p>
       <!-- <q-toggle v-model="accept" label="I accept the license and terms" /> -->
+
+      <!-- <q-toggle v-model="accept" label="I accept the license and terms" /> -->
+      <p class="signup">
+        Already have an account?
+        <router-link to="/login"><span class="link">Login</span></router-link>
+      </p>
+      <div>
+        <q-btn label="Submit" type="submit" color="primary" />
+        <!-- <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" /> -->
+      </div>
     </q-form>
   </div>
 </template>
 
 <script>
-import { useQuasar } from 'quasar'
-import { ref } from 'vue'
+import { useQuasar } from "quasar";
+import { ref } from "vue";
 
 export default {
-  setup () {
-    const $q = useQuasar()
+  setup() {
+    const $q = useQuasar();
 
-    const username = ref(null)
-    const password = ref(null)
-    const email = ref(null)
+    const username = ref(null);
+    const password = ref(null);
+    const email = ref(null);
 
     return {
       username,
@@ -96,34 +107,31 @@ export default {
       isPwd: ref(true),
       email,
 
-      onSubmit () {
+      onSubmit() {
         if (email.value !== true) {
           $q.notify({
-            color: 'red-5',
-            textColor: 'white',
-            icon: 'warning',
-            message: 'You need to accept the license and terms first'
-          })
-        }
-        else {
+            color: "red-5",
+            textColor: "white",
+            icon: "warning",
+            message: "You need to accept the license and terms first",
+          });
+        } else {
           $q.notify({
-            color: 'green-4',
-            textColor: 'white',
-            icon: 'cloud_done',
-            message: 'Submitted'
-          })
+            color: "green-4",
+            textColor: "white",
+            icon: "cloud_done",
+            message: "Submitted",
+          });
         }
       },
-
-      
-    }
+    };
   },
-  methods:{
-   onSubmit(){
-   this.$router.push('/'); 
-      }
-  }
-}
+  methods: {
+    onSubmit() {
+      this.$router.push("/login");
+    },
+  },
+};
 </script>
 
 <style>
