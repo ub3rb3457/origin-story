@@ -5,6 +5,7 @@
         filled
         v-model="username"
         label="Username"
+        class="Signin-input"
         lazy-rules
         :rules="[(val) => (val && val.length > 0) || 'Enter a Username']"
       />
@@ -14,6 +15,7 @@
         filled
         type="email"
         label="Email"
+        class="Signin-input"
         lazy-rules
         :rules="[(val) => (val && val.length > 0) || 'Enter a Email Address']"
       />
@@ -23,6 +25,7 @@
         filled
         :type="isPwd ? 'password' : 'text'"
         label="Password"
+        class="Signin-input"
         lazy-rules
         :rules="[(val) => val.length > 0 || 'Enter a Password']"
       >
@@ -88,6 +91,95 @@ export default {
   methods: {
     onSubmit() {
       this.$router.push("/login");
+    },
+
+    validateSigininUser() {
+      let inputs = document.querySelectorAll(".Signin-input");
+
+      // // // Validation
+      console.log(inputs);
+
+      // let valCharacter = true;
+
+      // inputs.forEach((input) => {
+      //   if (input.value == "") {
+      //     valCharacter = false;
+      //   }
+      // });
+
+      // if (valCharacter) {
+      //   fetch("http://localhost:3690/users").then((request) => {
+      //     request
+      //       .json()
+      //       .then((obj) => {
+      //         obj.forEach((user) => {
+      //           if (
+      //             user.username == inputs[0].value ||
+      //             user.email == inputs[1].value ||
+      //             user.password == inputs[2].value
+      //           ) {
+      //             throw new Error("Details Already Used");
+      //           }
+      //         });
+      //         // signinValidUser();
+      //         console.log("Loged_In");
+      //       })
+      //       .catch((err) => alert(err));
+      //   });
+      // } else alert("Please enter Your details!");
+    },
+
+    async signinValidUser() {
+      let inputs = document.querySelectorAll(".Signin-input");
+
+      let url = "http://localhost:3690/users";
+      let data = {
+        username: inputs[0].value,
+        email: inputs[1].value,
+        password: inputs[2].value,
+      };
+
+      await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Success:", data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+
+      // // // Login
+      let match = false;
+
+      await fetch("http://localhost:3690/users").then((request) => {
+        request.json().then((obj) => {
+          obj.forEach((user) => {
+            if (
+              data.username == user.username &&
+              data.password == user.password
+            ) {
+              window.localStorage.setItem("User_id", user.id);
+              console.log(window.localStorage.getItem("User_id"));
+              match = true;
+              return;
+            }
+          });
+          if (!match) alert("Username or Password is Incorect");
+          else {
+            alert("You have successfully logged in.");
+            // Goes to the blog section
+            displaySignin.innerHTML = ``;
+            popRegisterButtons();
+            popBlogs();
+          }
+        });
+      });
     },
   },
 };
