@@ -1,5 +1,13 @@
 <template>
+  <q-header class="glossy">
+    <q-toolbar>
+      <div class="q-pa-md"></div>
+      <q-btn flat icon="keyboard_backspace" @click="$router.go(-1)"></q-btn>
+      <q-toolbar-title class="name"> MyBlog & Me </q-toolbar-title>
+    </q-toolbar>
+  </q-header>
   <div class="q-pa-md" style="max-width: 400px; margin: auto">
+
     <q-form @submit="loginUser" class="q-gutter-md" style="margin-top: 0">
       <h4>Login</h4>
       <q-input
@@ -39,13 +47,8 @@
         <q-btn
           label="Login"
           type="submit"
-          style="
-            background: linear-gradient(
-                180deg,
-                rgba(255, 255, 255, 0.4) 0%,
-                rgba(0, 0, 0, 0) 100%
-              ),
-              #6ce34e;
+          style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%,rgba(0, 0, 0, 0) 100%),#6ce34e;
+
             width: 320px;
             font-family: Racing Sans One, cursive;
             text-transform: capitalize;
@@ -54,6 +57,7 @@
         />
       </div>
       <!-- <q-side-link tag="a" to="/SignUpForm.vue">Go to Route</q-side-link> -->
+
       <p class="signup">
         Don't have an account? <a href="/register">Sign Up</a>
       </p>
@@ -135,7 +139,7 @@ export default {
 <style>
 .q-toolbar__title {
   font-family: Racing Sans One, cursive;
-  font-size: 30px;
+  font-size: 35px;
 }
 .q-form {
   padding: 30px;
@@ -147,7 +151,7 @@ export default {
   border-radius: 28px;
   background: #ffffff;
 }
-h4 {
+.form-name {
   margin: 0 0 20px 0;
   font-family: Racing Sans One, cursive;
   color: #ffffff;
@@ -177,5 +181,31 @@ p {
 }
 .block {
   font-size: x-large;
+}
+.work {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.test {
+  border-bottom: 1px dashed #000000;
+  margin-top: 40px;
+}
+.title {
+  font-size: 25px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: orange;
+  margin: 0;
+}
+.tags {
+  color: #5d5fef;
+  display: flex;
+  justify-content: start;
+}
+.name {
+  font-family: Racing Sans One, cursive;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  margin: 0;
 }
 </style>

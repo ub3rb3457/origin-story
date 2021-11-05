@@ -1,43 +1,37 @@
 <template>
-  <q-header elevated class="glossy">
-    <q-toolbar>
-      <div class="q-pa-md">
-        <q-btn-dropdown
-          style="background: #6ce34e"
-          label="Filter"
-          dropdown-icon="change_history"
-        >
-          <q-list>
-            <q-item clickable v-close-popup @click="onItemClick">
-              <q-item-section>
-                <q-item-label>A-Z</q-item-label>
-              </q-item-section>
-            </q-item>
-            <q-item clickable v-close-popup @click="onItemClick">
-              <q-item-section>
-                <q-item-label>Oldest</q-item-label>
-              </q-item-section>
-            </q-item>
+ <q-header class="glossy">
+      <q-toolbar>
+    <div class="q-pa-md">
+    <q-btn-dropdown style="background: #6CE34E;" label="Filter" dropdown-icon="change_history">
+      <q-list>
+        <q-item clickable v-close-popup @click="onItemClick">
+          <q-item-section>
+            <q-item-label>A-Z</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable v-close-popup @click="onItemClick">
+          <q-item-section>
+            <q-item-label>Oldest</q-item-label>
+          </q-item-section>
+        </q-item>
 
-            <q-item clickable v-close-popup @click="onItemClick">
-              <q-item-section>
-                <q-item-label>Newest</q-item-label>
-              </q-item-section>
-            </q-item>
-          </q-list>
-        </q-btn-dropdown>
-      </div>
-      <q-toolbar-title> MyBlog & Me </q-toolbar-title>
-      <div class="entry">
-        <q-btn
-          @click="signUp()"
-          label="Sign Up"
-          icon="app_registration"
-        ></q-btn>
-        <q-btn @click="logIn()" label="Log In" icon="login"></q-btn>
-      </div>
-    </q-toolbar>
-  </q-header>
+        <q-item clickable v-close-popup @click="onItemClick">
+          <q-item-section>
+            <q-item-label>Newest</q-item-label>
+          </q-item-section>
+        </q-item>
+      </q-list>
+    </q-btn-dropdown>
+  </div>
+    <h5 class="name">
+        MyBlog & Me
+    </h5>
+    <div class="entry" style="display: flex;">
+        <q-btn style="background: #E34E72" @click="signUp()" label="Sign Up" icon="app_registration"></q-btn>
+        <q-btn style="background: #E34E72" @click="logIn()" label="Log In" icon="login"></q-btn>
+    </div>
+      </q-toolbar>
+    </q-header>
   <q-body>
     <div class="blog-container">
       <div class="test">
@@ -77,7 +71,7 @@
 
 <script>
 import { useQuasar } from "quasar";
-import { ref, resolveDirective } from "vue";
+import { ref } from "vue";
 
 export default {
   async mounted() {
@@ -136,10 +130,12 @@ export default {
 };
 </script>
 
-<style>
-body {
-  padding-left: 100px;
-  padding-right: 100px;
+
+<style scoped>
+.work{
+    padding-left: 100px;
+    padding-right: 100px;
+
 }
 .test {
   border-bottom: 1px dashed #000000;
@@ -156,4 +152,16 @@ body {
   display: flex;
   justify-content: start;
 }
+.name{
+  font-family: Racing Sans One, cursive;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+.q-toolbar{
+    display: flex;
+    justify-content: space-between;
+}
+
 </style>

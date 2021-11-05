@@ -1,11 +1,18 @@
 <template>
+  <q-header class="glossy">
+    <q-toolbar>
+      <div class="q-pa-md"></div>
+      <q-btn flat icon="keyboard_backspace" @click="$router.go(-1)"></q-btn>
+      <q-toolbar-title class="name"> MyBlog & Me </q-toolbar-title>
+    </q-toolbar>
+  </q-header>
   <div class="q-pa-md" style="max-width: 400px; margin: auto">
     <q-form
       @submit="validateSigininUser"
       class="q-gutter-md"
       style="margin-top: 0; margin-left: 0"
     >
-      <h4>SignUp</h4>
+      <h4 class="form-name">SignUp</h4>
       <q-input
         rounded
         outlined
@@ -209,6 +216,10 @@ export default {
 </script>
 
 <style>
+.q-toolbar{
+    display: flex;
+    justify-content: space-between;
+}
 .q-toolbar__title {
   font-family: Racing Sans One, cursive;
   font-size: 30px;
