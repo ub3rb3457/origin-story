@@ -34,7 +34,7 @@
           />
         </template>
       </q-input>
-
+      <span class="signup"><a href="/reset">forgot password?</a></span>
       <div>
         <q-btn
           label="Login"
@@ -54,7 +54,6 @@
         />
       </div>
       <!-- <q-side-link tag="a" to="/SignUpForm.vue">Go to Route</q-side-link> -->
-
       <p class="signup">
         Don't have an account? <a href="/register">Sign Up</a>
       </p>
