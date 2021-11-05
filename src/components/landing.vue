@@ -1,5 +1,5 @@
 <template>
- <q-header elevated class="glossy">
+ <q-header class="glossy">
       <q-toolbar>
     <div class="q-pa-md">
     <q-btn-dropdown style="background: #6CE34E;" label="Filter" dropdown-icon="change_history">
@@ -23,40 +23,20 @@
       </q-list>
     </q-btn-dropdown>
   </div>
-    <q-toolbar-title>
+    <h5 class="name">
         MyBlog & Me
-    </q-toolbar-title>
-    <div class="entry">
-        <q-btn @click="signUp()" label="Sign Up" icon="app_registration"></q-btn>
-        <q-btn @click="logIn()" label="Log In" icon="login"></q-btn>
+    </h5>
+    <div class="entry" style="display: flex;">
+        <q-btn style="background: #E34E72" @click="signUp()" label="Sign Up" icon="app_registration"></q-btn>
+        <q-btn style="background: #E34E72" @click="logIn()" label="Log In" icon="login"></q-btn>
     </div>
       </q-toolbar>
     </q-header>
-    <q-body>
-        <div>
-            <div class="test">
-                <h3 class="title">Blog-title</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, facilis magni, porro libero nihil impedit debitis fugit unde alias quo velit cumque consequuntur temporibus, minus veniam aut accusamus sed commodi.</p>
-                <p class="tags">#book #read #home</p>
-            </div>
-            <div class="test">
-                <h3 class="title">Blog-title</h3>
-               
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, facilis magni, porro libero nihil impedit debitis fugit unde alias quo velit cumque consequuntur temporibus, minus veniam aut accusamus sed commodi.</p>
-                <p class="tags">#book #read #home</p>
-            </div>
-            <div class="test">
-                <h3 class="title">Blog-title</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, facilis magni, porro libero nihil impedit debitis fugit unde alias quo velit cumque consequuntur temporibus, minus veniam aut accusamus sed commodi.</p>
-                <p class="tags">#book #read #home</p>
-            </div>
-        </div>
-    </q-body>
 </template>
 
 <script>
 import { useQuasar } from "quasar";
-import { ref, resolveDirective } from "vue";
+import { ref } from "vue";
 
 export default {
     methods: {
@@ -70,8 +50,8 @@ export default {
 }
 </script>
 
-<style>
-body{
+<style scoped>
+.work{
     padding-left: 100px;
     padding-right: 100px;
 }
@@ -90,4 +70,16 @@ body{
     display: flex;
     justify-content: start;
 }
+.name{
+  font-family: Racing Sans One, cursive;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+.q-toolbar{
+    display: flex;
+    justify-content: space-between;
+}
+
 </style>
