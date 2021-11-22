@@ -1,84 +1,79 @@
 <template>
- <q-header class="glossy">
-      <q-toolbar>
-    <div class="q-pa-md">
-    <q-btn-dropdown style="background: #6CE34E;" label="Filter" dropdown-icon="change_history">
-      <q-list>
-        <q-item clickable v-close-popup @click="onItemClick">
-          <q-item-section>
-            <q-item-label>A-Z</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable v-close-popup @click="onItemClick">
-          <q-item-section>
-            <q-item-label>Oldest</q-item-label>
-          </q-item-section>
-        </q-item>
+  <q-header elevated class="glossy">
+    <q-toolbar>
+      <div class="q-pa-md">
+        <q-btn-dropdown
+          style="background: #6ce34e"
+          label="Filter"
+          dropdown-icon="change_history"
+        >
+          <q-list>
+            <q-item clickable v-close-popup @click="onItemClick">
+              <q-item-section>
+                <q-item-label>A-Z</q-item-label>
+              </q-item-section>
+            </q-item>
+            <q-item clickable v-close-popup @click="onItemClick">
+              <q-item-section>
+                <q-item-label>Oldest</q-item-label>
+              </q-item-section>
+            </q-item>
 
-        <q-item clickable v-close-popup @click="onItemClick">
-          <q-item-section>
-            <q-item-label>Newest</q-item-label>
-          </q-item-section>
-        </q-item>
-      </q-list>
-    </q-btn-dropdown>
-  </div>
-    <h5 class="name">
-        MyBlog & Me
-    </h5>
-    <div class="entry" style="display: flex;">
-        <q-btn style="background: #E34E72" @click="signUp()" label="Sign Up" icon="app_registration"></q-btn>
-        <q-btn style="background: #E34E72" @click="logIn()" label="Log In" icon="login"></q-btn>
-    </div>
-      </q-toolbar>
-    </q-header>
+            <q-item clickable v-close-popup @click="onItemClick">
+              <q-item-section>
+                <q-item-label>Newest</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </q-btn-dropdown>
+      </div>
+      <q-toolbar-title> MyBlog & Me </q-toolbar-title>
+      <div class="entry">
+        <q-btn
+          v-if="!user_id"
+          @click="signUp()"
+          label="Sign Up"
+          icon="app_registration"
+        ></q-btn>
+        <q-btn
+          v-if="!user_id"
+          @click="logIn()"
+          label="Log In"
+          icon="login"
+        ></q-btn>
+        <q-btn
+          v-if="user_id"
+          @click="viewProfile()"
+          label="View Profile"
+          icon="person"
+        ></q-btn>
+        <q-btn
+          v-if="user_id"
+          @click="logOut()"
+          label="Log Out"
+          icon="logout"
+        ></q-btn>
+      </div>
+    </q-toolbar>
+  </q-header>
   <q-body>
-    <div class="blog-container">
-      <div class="test">
-        <h3 class="title">Blog-title</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt,
-          facilis magni, porro libero nihil impedit debitis fugit unde alias quo
-          velit cumque consequuntur temporibus, minus veniam aut accusamus sed
-          commodi.
-        </p>
-        <p class="tags">#book #read #home</p>
-      </div>
-      <div class="test">
-        <h3 class="title">Blog-title</h3>
-
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt,
-          facilis magni, porro libero nihil impedit debitis fugit unde alias quo
-          velit cumque consequuntur temporibus, minus veniam aut accusamus sed
-          commodi.
-        </p>
-        <p class="tags">#book #read #home</p>
-      </div>
-      <div class="test">
-        <h3 class="title">Blog-title</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt,
-          facilis magni, porro libero nihil impedit debitis fugit unde alias quo
-          velit cumque consequuntur temporibus, minus veniam aut accusamus sed
-          commodi.
-        </p>
-        <p class="tags">#book #read #home</p>
-      </div>
-    </div>
+    <div class="blog-container"></div>
   </q-body>
 </template>
 
 <script>
 import { useQuasar } from "quasar";
-import { ref } from "vue";
+import { ref, resolveDirective } from "vue";
 
 export default {
   async mounted() {
-    console.log(document.querySelector(".blog-container"));
+    if (window.localStorage.getItem("User_id")) {
+      console.log(window.localStorage.getItem("User_id"));
+    }
+
+    // console.log(document.querySelector(".blog-container"));
     let container = document.querySelector(".blog-container");
     container.innerHTML = ``;
-    // let content = [];
 
     await fetch(`http://localhost:3690/blogs`).then((request) => {
       request.json().then((obj) => {
@@ -107,11 +102,18 @@ export default {
     });
   },
   methods: {
+    viewProfile() {
+      window.location = "/profile";
+    },
     signUp() {
       window.location = "/register";
     },
     logIn() {
       window.location = "/login";
+    },
+    logOut() {
+      window.localStorage.removeItem("User_id");
+      window.location = "/";
     },
     async popHashtag(blog) {
       let hashtagContainer = document.querySelector(`.tag-${blog.id}`);
@@ -127,15 +129,24 @@ export default {
       );
     },
   },
+  data: function () {
+    if (window.localStorage.getItem("User_id")) {
+      return {
+        user_id: true,
+      };
+    } else {
+      return {
+        user_id: false,
+      };
+    }
+  },
 };
 </script>
 
-
-<style scoped>
-.work{
-    padding-left: 100px;
-    padding-right: 100px;
-
+<style>
+body {
+  padding-left: 100px;
+  padding-right: 100px;
 }
 .test {
   border-bottom: 1px dashed #000000;
@@ -152,16 +163,4 @@ export default {
   display: flex;
   justify-content: start;
 }
-.name{
-  font-family: Racing Sans One, cursive;
-  color: #ffffff;
-  display: flex;
-  justify-content: center;
-  margin: 0;
-}
-.q-toolbar{
-    display: flex;
-    justify-content: space-between;
-}
-
 </style>

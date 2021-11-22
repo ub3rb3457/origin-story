@@ -216,9 +216,9 @@ export default {
 </script>
 
 <style>
-.q-toolbar{
-    display: flex;
-    justify-content: space-between;
+.q-toolbar {
+  display: flex;
+  justify-content: space-between;
 }
 .q-toolbar__title {
   font-family: Racing Sans One, cursive;
