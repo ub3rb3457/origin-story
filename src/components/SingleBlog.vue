@@ -7,41 +7,21 @@
     </q-toolbar>
   </q-header>
   <div class="work">
-    <div class="test">
-      <h3 class="title">Blog-title</h3>
+    <div v-if="!(blog_id > 0)" class="error">
+      <h3 class="title">Error</h3>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, optio
-        dolores. Id incidunt quam perferendis quibusdam dolores rem velit totam
-        amet, voluptas cum iure. Esse id porro dolorem placeat saepe unde
-        dignissimos cumque? Corrupti rem possimus eligendi inventore, laborum
-        suscipit facere, quam dignissimos animi rerum nemo placeat omnis quaerat
-        pariatur nobis cum ad eaque.
+        Blog post was unable to be loaded. Invalid blog post id was passed
+        through. Please return to previous page.
       </p>
+    </div>
+    <div v-else class="test">
+      <h3 class="title">{{ blog_details.title }}</h3>
       <p>
-        <br>
-        Officiis ipsum consequuntur, porro in
-        dolore sed pariatur rem dolores aliquid magnam, maxime officia quidem
-        ipsa tenetur fugiat voluptatem. Soluta neque pariatur temporibus velit
-        ad commodi, labore quam quidem maiores libero quas repellat dignissimos
-        rem enim, earum eius. Voluptatum beatae nihil voluptatem sapiente,
-        expedita earum dicta atque ipsa consequatur magni alias repudiandae.
-        Quas expedita incidunt temporibus ducimus animi accusantium a sit
-        aspernatur deserunt, possimus sequi! Rerum sed earum vero sunt modi
-        libero sint pariatur similique laborum recusandae, quo, maiores quasi
-        quaerat aut ullam ducimus! Eligendi, veniam perferendis? Error ducimus
-        sed voluptas alias ipsa eum minus amet vero magnam nobis animi quis
-        dolore tempora voluptate ipsam, in nisi repellat ad quas reprehenderit,
-        consequatur omnis. 
-        </p>
-        <p>
-        <br>
-        Dolor possimus porro sint? Vero asperiores harum
-        velit aperiam! Pariatur, dolorum. Tenetur recusandae omnis, perferendis
-        perspiciatis soluta unde tempore optio maxime quos molestiae
-        voluptatibus quisquam quae, beatae labore vel, voluptate accusamus.
-        Optio, sed!
+        {{ blog_details.content }}
       </p>
-      <p class="tags">#book #read #home</p>
+      <p v-for="hashtags in blog_details.hashtags" :key="hashtags" class="tags">
+        #book #read #home
+      </p>
       <q-btn flat icon="thumb_up_off_alt"></q-btn>
       <q-btn flat icon="thumb_down_off_alt"></q-btn>
     </div>
@@ -49,7 +29,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      blog_id: window.localStorage.getItem("Blog_id"),
+      blog_details: JSON.parse(window.localStorage.getItem("Blog_details")),
+    };
+  },
+};
 </script>
 
 <style></style>

@@ -57,7 +57,20 @@
     </q-toolbar>
   </q-header>
   <q-body>
-    <div class="blog-container"></div>
+    <div v-for="blog in this.blogs" :key="blog" class="blog-container">
+      <div class="test">
+        <h3 class="title">{{ blog.title }}</h3>
+
+        <p>{{ blog.content }}</p>
+        <div class="hashtages">
+          <p v-for="hashtag in blog.hashtags" :key="hashtag" class="tags">
+            #{{ hashtag.hashtags }}
+          </p>
+        </div>
+        <q-btn @click="viewBlog(blog.id)" label="View Blog"></q-btn>
+        <b data="blog_id"></b>
+      </div>
+    </div>
   </q-body>
 </template>
 
@@ -71,37 +84,65 @@ export default {
       console.log(window.localStorage.getItem("User_id"));
     }
 
-    // console.log(document.querySelector(".blog-container"));
-    let container = document.querySelector(".blog-container");
-    container.innerHTML = ``;
-
     await fetch(`http://localhost:3690/blogs`).then((request) => {
       request.json().then((obj) => {
-        // console.log(obj);
         obj.forEach((blog) => {
-          // console.log(blog);
-          container.innerHTML += `
-                  <div class="test">
-                    <h3 class="title">${blog.title}</h3>
+          this.blogs.push({
+            id: blog.id,
+            title: blog.title,
+            content: blog.content,
+            hashtags: [],
+          });
 
-                    <p>${blog.content}</p>
-                    <p class="tags tag-${blog.id}"></p>
-                  </div>
-                `;
-        });
-      });
-    });
-
-    fetch(`http://localhost:3690/blogs`).then((request) => {
-      request.json().then((obj) => {
-        // console.log(obj);
-        obj.forEach((blog) => {
-          this.popHashtag(blog);
+          fetch(`http://localhost:3690/hashtags/blog/${blog.id}`).then(
+            (request) => {
+              request.json().then((obj) => {
+                obj.forEach((hashtag) => {
+                  this.blogs.forEach((blogContainer) => {
+                    if (blogContainer.id == blog.id) {
+                      blogContainer.hashtags.push({
+                        hashtags: hashtag.hashtag,
+                      });
+                    }
+                  });
+                });
+              });
+            }
+          );
         });
       });
     });
   },
   methods: {
+    async viewBlog(id) {
+      await fetch(`http://localhost:3690/blogs/${id}`).then((request) => {
+        request.json().then((obj) => {
+          obj.forEach((blog) => {
+            window.localStorage.setItem("Blog_id", blog.id);
+            window.localStorage.setItem(
+              "Blog_details",
+              JSON.stringify({
+                title: blog.title,
+                content: blog.content,
+              })
+            );
+          });
+        });
+      });
+
+      await fetch(`http://localhost:3690/hashtags/blog/${id}`).then(
+        (request) => {
+          request.json().then((obj) => {
+            let hashtags = [];
+            obj.forEach((hashtag) => {
+              hashtags.push(hashtag.hashtag);
+            });
+            window.localStorage.setItem("hashtags", JSON.stringify(hashtags));
+          });
+        }
+      );
+      window.location = "/blog";
+    },
     viewProfile() {
       window.location = "/profile";
     },
@@ -115,28 +156,17 @@ export default {
       window.localStorage.removeItem("User_id");
       window.location = "/";
     },
-    async popHashtag(blog) {
-      let hashtagContainer = document.querySelector(`.tag-${blog.id}`);
-      hashtagContainer.innerHTML = ``;
-      await fetch(`http://localhost:3690/hashtags/blog/${blog.id}`).then(
-        (request) => {
-          request.json().then((obj) => {
-            obj.forEach((hashtag) => {
-              hashtagContainer.innerHTML += `#${hashtag.hashtag} `;
-            });
-          });
-        }
-      );
-    },
   },
   data: function () {
     if (window.localStorage.getItem("User_id")) {
       return {
         user_id: true,
+        blogs: [],
       };
     } else {
       return {
         user_id: false,
+        blogs: [],
       };
     }
   },
