@@ -1,19 +1,19 @@
 {
-  "name": "blog-post",
-  "version": "0.0.0",
+  "name": "quasar-vite",
+  "version": "0.0.1",
   "scripts": {
     "serve": "vite preview",
     "build": "vite build",
     "dev": "vite"
   },
   "dependencies": {
-    "@quasar/extras": "^1.0.0",
-    "quasar": "^2.0.0",
+    "@quasar/extras": "^1.12.5",
+    "quasar": "^2.5.5",
     "vue": "^3.2.16"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.9.3",
-    "vite": "^2.6.4",
-    "vue-cli-plugin-quasar": "~4.0.3"
+    "@vitejs/plugin-vue": "^2.2.4",
+    "vite": "^2.8.6",
+    "vue-cli-plugin-quasar": "^4.0.4"
   }
 }
