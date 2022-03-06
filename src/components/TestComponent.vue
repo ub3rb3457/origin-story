@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center">
-    <p>boom</p>
+   <p>b00m</p>
   </q-page>
 </template>
 
@@ -8,5 +8,5 @@
 </style>
 
 <script setup>
-  
+
 </script>
