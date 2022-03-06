@@ -1,6 +1,6 @@
 {
   "name": "quasar-vite",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "serve": "vite preview",
     "build": "vite build",
@@ -8,12 +8,18 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.12.5",
+    "pinia": "^2.0.11",
     "quasar": "^2.5.5",
-    "vue": "^3.2.16"
+    "vue": "^3.2.16",
+    "vue-i18n": "^9.1.9",
+    "vue-router": "^4.0.13"
   },
   "devDependencies": {
+    "@intlify/vite-plugin-vue-i18n": "^3.3.1",
     "@vitejs/plugin-vue": "^2.2.4",
     "vite": "^2.8.6",
+    "vite-plugin-pages": "^0.21.3",
+    "vite-plugin-vue-layouts": "^0.6.0",
     "vue-cli-plugin-quasar": "^4.0.4"
   }
 }
