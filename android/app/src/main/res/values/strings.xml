@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">origin-story</string>
+    <string name="title_activity_main">origin-story</string>
+    <string name="package_name">com.graymatterf0rge.app</string>
+    <string name="custom_url_scheme">com.graymatterf0rge.app</string>
+</resources>

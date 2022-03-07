@@ -1,0 +1,21 @@
+Root Directory                                                       
+├─ android 
+├─ dist
+├─ public                                                                                                            
+├─ src                                                   
+│  ├─ assets                                                                                    
+│  ├─ components                                                                       
+│  ├─ layouts                                            
+│  ├─ stores                                             
+│  │  └─ user.js                                         
+│  ├─ App.vue                                            
+│  ├─ main.js                                            
+│  ├─ quasar-user-options.js                             
+│  └─ router.js                                          
+├─ README.md                                             
+├─ capacitor.config.ts                                   
+├─ index.html                                            
+├─ package.json                                          
+├─ tree.txt                                              
+├─ vite.config.js                                        
+└─ vue.config.js                                         
