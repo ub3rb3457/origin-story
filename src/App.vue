@@ -6,9 +6,9 @@
           flat
           dense
           round
-          @click="leftDrawerOpen = !leftDrawerOpen"
-          aria-label="Menu"
           icon="menu"
+          aria-label="Menu"
+          @click="leftDrawerOpen = !leftDrawerOpen"
         />
 
         <q-toolbar-title>
@@ -86,7 +86,7 @@
   const { t } = useI18n({
     inheritLocale: true
   })
-  let leftDrawerOpen = $ref(false)
+  let leftDrawerOpen = $ref(false) // eslint-disable-line
 </script>
 <i18n>
   {
