@@ -12,13 +12,12 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          Quasar App - message: {{ t('hello') }}
         </q-toolbar-title>
 
         <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
-
     <q-drawer
       v-model="leftDrawerOpen"
       show-if-above
@@ -76,10 +75,26 @@
     </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <router-view />      
     </q-page-container>
   </q-layout>
+  
 </template>
+
 <script setup>
+  import { useI18n } from 'vue-i18n'
+  const { t } = useI18n({
+    inheritLocale: true
+  })
   let leftDrawerOpen = $ref(false)
 </script>
+<i18n>
+  {
+    "en": {
+      "hello": "hello world!"
+    },
+    "ja": {
+      "hello": "こんにちは、世界！"
+    }
+  }
+</i18n>
